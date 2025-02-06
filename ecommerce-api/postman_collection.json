@@ -1,0 +1,95 @@
+{
+  "info": {
+    "_postman_id": "ecommerce-api-collection",
+    "name": "Ecommerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:5000/api/auth/register" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"buyer\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:5000/api/auth/login" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer YOUR_TOKEN_HERE" }],
+            "url": { "raw": "http://localhost:5000/api/products" },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "Laptop" },
+                { "key": "description", "value": "Gaming Laptop" },
+                { "key": "category", "value": "Electronics" },
+                { "key": "oldPrice", "value": "1000" },
+                { "key": "newPrice", "value": "900" },
+                { "key": "scheduledStartDate", "value": "2024-02-10" },
+                { "key": "freeDelivery", "value": "true" },
+                { "key": "image", "type": "file", "src": "your-image.jpg" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/api/products" }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/api/products/YOUR_PRODUCT_ID" }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer YOUR_TOKEN_HERE" }],
+            "url": { "raw": "http://localhost:5000/api/products/YOUR_PRODUCT_ID" }
+          }
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/api/products/search?name=Laptop&category=Electronics"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
