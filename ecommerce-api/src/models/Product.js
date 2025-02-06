@@ -67,7 +67,7 @@ const Product = sequelize.define("Product", {
   },
 });
 
-// Relation: A Product belongs to a Vendor (User)
+
 Product.belongsTo(User, { foreignKey: "vendorId", as: "vendor" });
 
 module.exports = Product;

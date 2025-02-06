@@ -1,6 +1,6 @@
 const User = require("../models/User");
 
-// Get All Users (Admin Only)
+
 const getUsers = async (req, res) => {
   try {
     const users = await User.findAll({

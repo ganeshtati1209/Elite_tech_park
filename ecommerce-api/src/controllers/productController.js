@@ -3,7 +3,7 @@ const Product = require("../models/Product");
 const User = require("../models/User");
 const cloudinary = require("../config/cloudinary");
 
-// Create Product (Admin, Staff, Vendor)
+
 const createProduct = async (req, res) => {
   try {
     const { name, description, category, oldPrice, newPrice, scheduledStartDate, freeDelivery, deliveryAmount } = req.body;
@@ -13,10 +13,10 @@ const createProduct = async (req, res) => {
       return res.status(400).json({ message: "Product image is required" });
     }
 
-    // Upload image to Cloudinary
+
     const uploadResult = await cloudinary.uploader.upload(req.file.path);
 
-    // Calculate expiry date (7 days from scheduled start date)
+
     const expiryDate = new Date(scheduledStartDate);
     expiryDate.setDate(expiryDate.getDate() + 7);
 
@@ -41,7 +41,7 @@ const createProduct = async (req, res) => {
   }
 };
 
-// Get All Products
+
 const getAllProducts = async (req, res) => {
   try {
     const products = await Product.findAll({
@@ -53,7 +53,7 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// Get Product by ID
+
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findByPk(req.params.id, {
@@ -66,13 +66,13 @@ const getProductById = async (req, res) => {
   }
 };
 
-// Delete Product (Admin, Vendor, Staff)
+
 const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByPk(req.params.id);
     if (!product) return res.status(404).json({ message: "Product not found" });
 
-    // Only Admin or Owner (Vendor) can delete
+
     if (req.user.role !== "admin" && req.user.id !== product.vendorId) {
       return res.status(403).json({ message: "Not authorized to delete this product" });
     }
@@ -84,7 +84,7 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-// Search, Filter & Paginate Products
+
 const searchProducts = async (req, res) => {
   try {
     const { name, category, minPrice, maxPrice, page = 1, limit = 10 } = req.query;

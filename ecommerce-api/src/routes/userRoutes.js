@@ -6,4 +6,4 @@ const router = express.Router();
 
 router.get("/", authenticateUser, authorizeRoles("admin"), getUsers); // ✅ Ensure `getUsers` is defined
 
-module.exports = router; // ✅ Export only `router`
+module.exports = router;

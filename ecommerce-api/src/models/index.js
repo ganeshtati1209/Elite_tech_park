@@ -5,9 +5,9 @@ const Product = require("./Product");
 const syncDatabase = async () => {
   try {
     await sequelize.sync({ force: false }); // Set force: true to reset DB on each restart
-    console.log("✅ Database Synced Successfully");
+    console.log("Database Synced Successfully");
   } catch (error) {
-    console.error("❌ Database Sync Error:", error);
+    console.error("Database Sync Error:", error);
   }
 };
 

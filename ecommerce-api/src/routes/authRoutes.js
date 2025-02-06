@@ -6,4 +6,4 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 
-module.exports = router; // ✅ Ensure ONLY `router` is exported
+module.exports = router;

@@ -16,7 +16,7 @@
             "url": { "raw": "http://localhost:5000/api/auth/register" },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"buyer\"\n}"
+              "raw": "{\n  \"name\": \"Ganesh Tati\",\n  \"email\": \"test@example.com\",\n  \"password\": \"pass@123\",\n  \"role\": \"buyer\"\n}"
             }
           }
         },

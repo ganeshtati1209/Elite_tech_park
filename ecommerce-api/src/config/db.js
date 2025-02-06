@@ -7,13 +7,13 @@ const sequelize = new Sequelize({
   logging: false, // Disable SQL logs in console
 });
 
-// Connect to the database
+
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log("✅ SQLite Database Connected Successfully!");
+    console.log("SQLite Database Connected Successfully!");
   } catch (error) {
-    console.error("❌ Database Connection Failed:", error);
+    console.error("Database Connection Failed:", error);
   }
 };
 

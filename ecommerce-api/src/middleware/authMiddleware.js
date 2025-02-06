@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-// Middleware to verify JWT token
+
 const authenticateUser = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token) {
@@ -17,7 +17,7 @@ const authenticateUser = (req, res, next) => {
   }
 };
 
-// Middleware for role-based access control
+
 const authorizeRoles = (...allowedRoles) => {
   return (req, res, next) => {
     if (!allowedRoles.includes(req.user.role)) {

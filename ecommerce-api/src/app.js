@@ -4,7 +4,7 @@ const cors = require("cors");
 const { connectDB } = require("./config/db");
 const { syncDatabase } = require("./models");
 
-// ✅ Ensure these are imported correctly
+
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -12,11 +12,11 @@ const userRoutes = require("./routes/userRoutes");
 dotenv.config();
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// ✅ Use routes correctly
+
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);

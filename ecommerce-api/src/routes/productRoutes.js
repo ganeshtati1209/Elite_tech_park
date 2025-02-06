@@ -11,4 +11,4 @@ router.get("/:id", getProductById);
 router.delete("/:id", authenticateUser, authorizeRoles("admin", "vendor", "staff"), deleteProduct);
 router.get("/search", searchProducts);
 
-module.exports = router; // ✅ Ensure ONLY `router` is exported
+module.exports = router;
